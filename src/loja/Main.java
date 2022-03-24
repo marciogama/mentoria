@@ -1,25 +1,41 @@
 package loja;
 
-public class Main {
+import loja.dominio.Categoria;
+import loja.dominio.Produto;
+import loja.dominio.Cliente;
+import loja.dominio.Endereco;
+import loja.dominio.Telefone;
+import loja.fatura.ItensDoPedido;
+import loja.fatura.Pedido;
+import loja.fatura.Venda;
+import loja.fiscal.Fiscal;
+import loja.fiscal.NotaFiscal;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+import static loja.util.MockUtil.*;
+
+public class Main {
     public static void main(String[] args) {
 
-        Cliente teste = criarCliente();
+        Cliente cliente = criarCliente2();
 
-        System.out.println(teste);
+        Venda venda1 = new Venda( LocalDateTime.parse("2022-03-19 10:35:10",
+                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
+                cliente, criaPedido1(cliente) );
+
+        Venda venda2 = new Venda( LocalDateTime.parse("2022-03-20 15:50:22",
+                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
+                cliente, criaPedido2(cliente) );
+
+        Fiscal fiscal = new Fiscal();
+        NotaFiscal notaFiscal = fiscal.geraNotaFiscal(venda1, "teste geracao nota fiscal");
+        fiscal.imprimirNotaFiscal(notaFiscal);
+
     }
 
-    private static Cliente criarCliente() {
-        Endereco endereco = new Endereco();
-        endereco.setRua("Rua do Ouvidor");
-        endereco.setNumero(130);
-        endereco.setEstado("RJ");
-        endereco.setCidade("Rio de Janeiro");
-        endereco.setBairro("Centro");
-        endereco.setCep("20040030");
 
-        Telefone telefone = new Telefone("2122234050");
-
-        return new Cliente("Joaquim da Silva", "98765432100", endereco, telefone);
-    }
 }
