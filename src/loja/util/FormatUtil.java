@@ -1,15 +1,9 @@
 package loja.util;
 
-import loja.dominio.Categoria;
 import loja.dominio.Endereco;
-import loja.dominio.Produto;
 import loja.fiscal.NotaFiscal;
-import loja.fiscal.NotaFiscalItem;
 
-import java.util.Arrays;
 import java.util.stream.Collectors;
-
-import static loja.util.MockUtil.criarCliente;
 
 public class FormatUtil {
 

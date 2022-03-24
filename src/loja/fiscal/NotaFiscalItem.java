@@ -6,7 +6,7 @@ public class NotaFiscalItem {
     private long id;
     private Produto produto;
     private int quantidade;
-    private static long contadorId;
+    private static long contadorId =1;
 
     public NotaFiscalItem(Produto produto, int quantidade) {
         this.id = generateNewId();

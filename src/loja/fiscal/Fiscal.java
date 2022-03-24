@@ -35,5 +35,4 @@ public class Fiscal extends Empresa {
                 .collect(Collectors.toList());
     }
 
-
 }

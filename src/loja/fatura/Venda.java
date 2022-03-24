@@ -9,7 +9,7 @@ public class Venda {
     private LocalDateTime dataVenda;
     private Cliente cliente;
     private Pedido pedido;
-    private static long contadorId;
+    private static long contadorId =1;
 
     public Venda( LocalDateTime dataVenda, Cliente cliente, Pedido pedido) {
         this.id = generateNewId();

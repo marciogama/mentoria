@@ -11,7 +11,7 @@ public class Pedido {
     private LocalDateTime dataDoPedido;
     private Cliente cliente;
     private List<ItensDoPedido> itensDoPedidos = new ArrayList<>();
-    private static long contadorId;
+    private static long contadorId =1;
 
     public Pedido( LocalDateTime dataDoPedido, Cliente cliente, List<ItensDoPedido> itensDoPedidos) {
         this.id = generateNextId();

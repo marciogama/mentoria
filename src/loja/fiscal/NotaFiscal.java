@@ -11,7 +11,7 @@ public class NotaFiscal {
     private Cliente cliente;
     private String observacao;
     private List<NotaFiscalItem> items = new ArrayList<>();
-    private static long contadorId;
+    private static long contadorId = 1;
 
     public NotaFiscal(Cliente cliente, String observacao, List<NotaFiscalItem> items) {
         this.id = generateNewId();

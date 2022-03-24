@@ -1,20 +1,12 @@
 package loja;
 
-import loja.dominio.Categoria;
-import loja.dominio.Produto;
 import loja.dominio.Cliente;
-import loja.dominio.Endereco;
-import loja.dominio.Telefone;
-import loja.fatura.ItensDoPedido;
-import loja.fatura.Pedido;
 import loja.fatura.Venda;
 import loja.fiscal.Fiscal;
 import loja.fiscal.NotaFiscal;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 
 import static loja.util.MockUtil.*;
 
@@ -34,6 +26,9 @@ public class Main {
         Fiscal fiscal = new Fiscal();
         NotaFiscal notaFiscal = fiscal.geraNotaFiscal(venda1, "teste geracao nota fiscal");
         fiscal.imprimirNotaFiscal(notaFiscal);
+
+        NotaFiscal notaFiscal2 = fiscal.geraNotaFiscal(venda2, "teste geracao nota fiscal");
+        fiscal.imprimirNotaFiscal(notaFiscal2);
 
     }
 

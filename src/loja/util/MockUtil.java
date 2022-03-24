@@ -19,7 +19,7 @@ public class MockUtil {
 
     public static Cliente criarCliente2() {
 
-        return new Cliente("Joaquim da Silva", "98765432100", criaEndereco2(), criaTelefone2());
+        return new Cliente("Joaquim da Silva", "98765432100", criaEndereco1(), criaTelefone2());
     }
 
     public static List<Produto> criaListaProduto() {
@@ -41,7 +41,7 @@ public class MockUtil {
         return new Produto("Escrivaninha", Categoria.MOVEIS, 700.0);
     }
 
-    public static Endereco criaEndereco() {
+    public static Endereco criaEndereco1() {
         Endereco e = new Endereco();
         e.setBairro("Vila Gomes");
         e.setCidade("Sao Paulo");
