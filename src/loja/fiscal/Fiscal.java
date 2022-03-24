@@ -5,6 +5,7 @@ import loja.fatura.ItensDoPedido;
 import loja.fatura.Venda;
 import loja.util.FormatUtil;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,8 +32,17 @@ public class Fiscal extends Empresa {
     private List<NotaFiscalItem> map(Venda venda){
         List<ItensDoPedido> itensDoPedidos = venda.getPedido().getItensDoPedidos();
 
-        return itensDoPedidos.stream().map(idp -> new NotaFiscalItem(idp.getProduto(), idp.getQuantidade()))
+        return itensDoPedidos.stream().map(idp -> new NotaFiscalItem(idp.getProduto(), idp.getQuantidade(), idp.getValor()))
                 .collect(Collectors.toList());
+    }
+
+    private BigDecimal valorTotalDaNota(Venda venda) {
+        List<ItensDoPedido> itensDoPedidos = venda.getPedido().getItensDoPedidos();
+
+        BigDecimal valorTotal = BigDecimal.ZERO;
+
+        valorTotal = itensDoPedidos.stream().forEach( idp -> valorTotal += (new BigDecimal(idp.getQuantidade()*idp.getValor()));
+
     }
 
 }

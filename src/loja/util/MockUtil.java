@@ -4,6 +4,7 @@ import loja.dominio.*;
 import loja.fatura.ItensDoPedido;
 import loja.fatura.Pedido;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -73,8 +74,8 @@ public class MockUtil {
 
     public static Pedido criaPedido1(Cliente cliente){
 
-        ItensDoPedido it1 = new ItensDoPedido(1L, criaProduto1(),10);
-        ItensDoPedido it2 = new ItensDoPedido(1L, criaProduto2(), 15);
+        ItensDoPedido it1 = new ItensDoPedido(1L, criaProduto1(),10, new BigDecimal("1000.0"));
+        ItensDoPedido it2 = new ItensDoPedido(1L, criaProduto2(), 15, new BigDecimal("2000.0"));
 
         List<ItensDoPedido> itensDoPedido1 = new ArrayList<>();
         itensDoPedido1.add(it1);
@@ -84,8 +85,8 @@ public class MockUtil {
     }
 
     public static Pedido criaPedido2(Cliente cliente){
-        ItensDoPedido it3 = new ItensDoPedido(2L, criaProduto3(), 7);
-        ItensDoPedido it4 = new ItensDoPedido(2L, criaProduto4(),7);
+        ItensDoPedido it3 = new ItensDoPedido(2L, criaProduto3(), 7, new BigDecimal("1500.0"));
+        ItensDoPedido it4 = new ItensDoPedido(2L, criaProduto4(),7, new BigDecimal("2500.0"));
         List<ItensDoPedido> itensDoPedido2 = new ArrayList<>();
         itensDoPedido2.add(it3);
         itensDoPedido2.add(it4);
