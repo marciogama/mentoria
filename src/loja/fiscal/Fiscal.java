@@ -26,6 +26,8 @@ public class Fiscal extends Empresa {
         System.out.println(FormatUtil.getEnderecoFormatado(notaFiscal.getCliente().getEndereco()));
         System.out.println("---------------Itens da Nota------------------");
         System.out.println(FormatUtil.getItemsNotaFormatado(notaFiscal));
+        System.out.println("---------------Valor Total da Nota------------------");
+        System.out.println(valorTotalDaNota(notaFiscal));
 
     }
 
@@ -36,13 +38,14 @@ public class Fiscal extends Empresa {
                 .collect(Collectors.toList());
     }
 
-    private BigDecimal valorTotalDaNota(Venda venda) {
-        List<ItensDoPedido> itensDoPedidos = venda.getPedido().getItensDoPedidos();
+    private BigDecimal valorTotalDaNota(NotaFiscal notaFiscal) {
+        List<NotaFiscalItem> itensDaNota = notaFiscal.getItems();
 
-        BigDecimal valorTotal = BigDecimal.ZERO;
 
-        valorTotal = itensDoPedidos.stream().forEach( idp -> valorTotal += (new BigDecimal(idp.getQuantidade()*idp.getValor()));
+        double valorTotal = itensDaNota.stream().mapToDouble(idp -> idp.getValor().multiply( new BigDecimal(idp.getQuantidade())).doubleValue()).sum();
 
+
+        return new BigDecimal(valorTotal);
     }
 
 }
