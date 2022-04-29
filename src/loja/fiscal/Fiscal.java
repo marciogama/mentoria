@@ -41,9 +41,7 @@ public class Fiscal extends Empresa {
     private BigDecimal valorTotalDaNota(NotaFiscal notaFiscal) {
         List<NotaFiscalItem> itensDaNota = notaFiscal.getItems();
 
-
         double valorTotal = itensDaNota.stream().mapToDouble(idp -> idp.getValor().multiply( new BigDecimal(idp.getQuantidade())).doubleValue()).sum();
-
 
         return new BigDecimal(valorTotal);
     }

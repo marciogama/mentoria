@@ -17,6 +17,5 @@ public class FormatUtil {
         return notaFiscal.getItems().stream()
                 .map(item -> "Qtde:" + item.getQuantidade() + " - " + item.getProduto().getDescricao() + "\n")
                 .collect(Collectors.joining());
-
     }
 }

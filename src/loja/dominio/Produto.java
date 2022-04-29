@@ -1,7 +1,5 @@
 package loja.dominio;
 
-import loja.dominio.Categoria;
-
 public class Produto {
 
     private long id;
