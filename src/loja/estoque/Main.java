@@ -7,8 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Produto p1 = new Produto(  "TV Samsung", Categoria.ELETRODOMESTICOS, 1500.0);
-        Produto p2 = new Produto(  "Notebook Dell", Categoria.INFORMATICA, 7500.0);
+        Produto p1 = new Produto(  "TV Samsung", "ELETRODOMESTICOS", 1500.0);
+        Produto p2 = new Produto(  "Notebook Dell", "INFORMATICA", 7500.0);
 
         Estoque estoque = new Estoque();
 

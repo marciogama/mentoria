@@ -4,15 +4,15 @@ public class Produto {
 
     private long id;
     private String descricao;
-    private Categoria categoria;
+    private String categoria;
     private double preco;
-    private static long contadorId;
+//    private static long contadorId;
 
     public Produto() {
     }
 
-    public Produto(String descricao, Categoria categoria, double preco) {
-        this.id = generateNewId();
+    public Produto(String descricao, String categoria, double preco) {
+//        this.id = generateNewId();
         this.descricao = descricao;
         this.categoria = categoria;
         this.preco = preco;
@@ -34,11 +34,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public Categoria getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
@@ -60,7 +60,7 @@ public class Produto {
                 '}';
     }
 
-    private long generateNewId(){
-        return contadorId ++;
-    }
+//    private long generateNewId(){
+//        return contadorId ++;
+//    }
 }

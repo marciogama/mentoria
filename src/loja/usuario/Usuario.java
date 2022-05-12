@@ -17,16 +17,16 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public int getUsuarioId() {
         return usuarioId;
     }
 
     public void setUsuarioId(int usuarioId) {
         this.usuarioId = usuarioId;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setEmail(String email) {
@@ -40,10 +40,12 @@ public class Usuario {
     public String getNome() {
         return nome;
     }
+
     @Override
     public String toString() {
         return "Usuario{" +
-                "email='" + email + '\'' +
+                "usuarioId=" + usuarioId +
+                ", email='" + email + '\'' +
                 ", nome='" + nome + '\'' +
                 '}';
     }

@@ -28,18 +28,18 @@ public class MockUtil {
     }
 
     public static Produto criaProduto1() {
-        return new Produto("TV Samsung", Categoria.ELETRODOMESTICOS, 1500.0);
+        return new Produto("TV Samsung", "ELETRODOMESTICOS", 1500.0);
     }
 
     public static Produto criaProduto2() {
-        return new Produto("Notebook Dell", Categoria.INFORMATICA, 7500.0);
+        return new Produto("Notebook Dell", "INFORMATICA", 7500.0);
     }
     public static Produto criaProduto3() {
-        return new Produto("Luminária", Categoria.ELETRODOMESTICOS, 150.0);
+        return new Produto("Luminária", "ELETRODOMESTICOS", 150.0);
     }
 
     public static Produto criaProduto4() {
-        return new Produto("Escrivaninha", Categoria.MOVEIS, 700.0);
+        return new Produto("Escrivaninha", "MOVEIS", 700.0);
     }
 
     public static Endereco criaEndereco1() {

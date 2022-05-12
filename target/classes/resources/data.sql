@@ -1,0 +1,1 @@
+INSERT INTO tb_produto (descricao, categoria, preco) VALUES ('KVM', 'INFORMATICA', 150.32);
