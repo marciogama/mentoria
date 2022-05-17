@@ -1,6 +1,5 @@
 package loja.dao;
 
-import loja.dominio.Categoria;
 import loja.dominio.Produto;
 
 import java.sql.*;
@@ -29,21 +28,12 @@ public class DaoImpl implements Dao <Produto>{
 
         Connection con = getConnection();
 
-
         try {
             PreparedStatement stm = con.prepareStatement(INSERT_PRODUTO_SQL);
             stm.setString(1, obj.getDescricao());
             stm.setString(2, obj.getCategoria());
             stm.setDouble(3, obj.getPreco());
             stm.executeUpdate();
-
-//            while (rst.next()) {
-//                Integer id = rst.getInt("ID");
-//                String descricao = rst.getString("DESCRICAO");
-//                String categoria = rst.getString("CATEGORIA");
-//                Double preco = rst.getDouble("PRECO");
-//                System.out.printf("%d , %s, %s, %.2f%n",id, descricao, categoria, preco);
-//            }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -91,8 +81,6 @@ public class DaoImpl implements Dao <Produto>{
     @Override
     public Produto findById(int id) {
 
-
-
         Connection con = getConnection();
 
         try {
@@ -103,14 +91,7 @@ public class DaoImpl implements Dao <Produto>{
 
             ResultSet rst = stm.executeQuery();
 
-
-            while (rst.next()) {
-                Integer ident = rst.getInt("ID");
-                String descricao = rst.getString("DESCRICAO");
-                String categoria = rst.getString("CATEGORIA");
-                Double preco = rst.getDouble("PRECO");
-                System.out.printf("%d , %s, %s, %.2f%n",id, descricao, categoria, preco);
-            }
+            listaProdutos(rst);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -124,10 +105,21 @@ public class DaoImpl implements Dao <Produto>{
         Connection con = getConnection();
 
         try {
-            Statement stm = con.createStatement();
-            stm.execute(SELECT_ALL_PRODUTOS);
+            PreparedStatement stm = con.prepareStatement(SELECT_ALL_PRODUTOS);
+            stm.execute();
             ResultSet rst = stm.getResultSet();
 
+            listaProdutos(rst);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    private void listaProdutos(ResultSet rst) {
+
+        try {
             while (rst.next()) {
                 Integer id = rst.getInt("ID");
                 String descricao = rst.getString("DESCRICAO");
@@ -139,6 +131,5 @@ public class DaoImpl implements Dao <Produto>{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
     }
 }
